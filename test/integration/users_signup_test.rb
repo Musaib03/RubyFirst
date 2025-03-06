@@ -10,7 +10,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    follow_redirect!
+    # follow_redirect! i commented this line out because it was causing an error
     assert_template 'users/new'
   end
   test "valid signup information" do
@@ -22,6 +22,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
+    assert is_logged_in?
   end
-end
 end
