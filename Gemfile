@@ -23,6 +23,8 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem "bcrypt",          "3.1.18"
 gem 'rails-controller-testing'
+gem "active_storage_validations", "0.9.8"
+gem "image_processing",           "1.12.2"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

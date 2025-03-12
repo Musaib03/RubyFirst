@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def index
@@ -53,9 +54,6 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 
-    def admin_user
-      redirect_to(root_url, status: :see_other) unless current_user.admin?
-    end
     # Before filters
 
     # Confirms a logged-in user.
@@ -70,5 +68,8 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url, status: :see_other) unless current_user?(@user)
+    end
+    def admin_user
+      redirect_to(root_url, status: :see_other) unless current_user.admin?
     end
 end
